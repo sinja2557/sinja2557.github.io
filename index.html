@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>권신협 포트폴리오</title>
+<meta name="description" content="클라우드, 네트워크, IoT, 서버 플러그인 프로젝트를 정리한 포트폴리오입니다.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0D1422;
+    --surface: #141E31;
+    --line: #24314A;
+    --text: #E4E9F2;
+    --muted: #8D9AB2;
+    --accent: #6FB7FF;
+    --warm: #F0B45B;
+    --sans: "IBM Plex Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+    --wrap: 1080px;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  *, *::before, *::after { box-sizing: inherit; }
+  html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    word-break: keep-all;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; text-underline-offset: 3px; }
+  :focus-visible { outline: 2px solid var(--warm); outline-offset: 3px; border-radius: 4px; }
+  img { max-width: 100%; }
+
+  .wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 24px; }
+
+  /* 상단 메뉴 */
+  .nav {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(13, 20, 34, 0.88);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 60px; }
+  .nav-name { font-weight: 700; color: var(--text); }
+  .nav ul { display: flex; gap: 22px; list-style: none; margin: 0; padding: 0; }
+  .nav ul a { color: var(--muted); font-size: 15px; }
+  .nav ul a:hover { color: var(--text); text-decoration: none; }
+
+  /* 첫 화면 */
+  .hero { padding: 96px 0 88px; border-bottom: 1px solid var(--line); }
+  .hero .wrap { display: grid; grid-template-columns: 1.15fr 1fr; gap: 56px; align-items: center; }
+  .hero h1 {
+    font-size: clamp(34px, 5vw, 54px);
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+    margin: 0 0 24px;
+    font-weight: 700;
+  }
+  .hero p { color: var(--muted); max-width: 34em; margin: 0 0 28px; }
+  .hero-links { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn {
+    display: inline-block; padding: 11px 20px; border-radius: 8px;
+    font-weight: 600; font-size: 15px;
+    border: 1px solid var(--line); color: var(--text);
+  }
+  .btn.primary { background: var(--accent); border-color: var(--accent); color: #0D1422; }
+  .btn:hover { text-decoration: none; filter: brightness(1.08); }
+
+  /* 첫 화면 프로젝트 목록 */
+  .index { border: 1px solid var(--line); border-radius: 14px; background: var(--surface); overflow: hidden; }
+  .index h2 { font-size: 15px; font-weight: 600; color: var(--muted); margin: 0; padding: 16px 22px; border-bottom: 1px solid var(--line); }
+  .index ol { list-style: none; margin: 0; padding: 0; }
+  .index li + li { border-top: 1px solid var(--line); }
+  .index a { display: block; padding: 16px 22px; color: var(--text); }
+  .index a:hover { background: rgba(111, 183, 255, 0.06); text-decoration: none; }
+  .index strong { display: block; font-size: 16px; }
+  .index span { display: block; font-size: 14px; color: var(--muted); margin-top: 2px; }
+
+  /* 섹션 공통 */
+  section.block { padding: 88px 0; border-bottom: 1px solid var(--line); }
+  .block h2 { font-size: 30px; letter-spacing: -0.01em; margin: 0 0 12px; }
+  .block .lead { color: var(--muted); margin: 0 0 44px; max-width: 40em; }
+
+  /* 대표 프로젝트 */
+  .featured {
+    display: grid; grid-template-columns: 1fr 1.3fr; gap: 40px;
+    background: var(--surface); border: 1px solid var(--line); border-radius: 16px;
+    padding: 40px; margin-bottom: 56px;
+  }
+  .featured h3 { font-size: 26px; line-height: 1.35; margin: 0 0 14px; }
+  .context { font-size: 14px; color: var(--accent); margin: 0 0 10px; }
+  .featured .summary { color: var(--muted); margin: 0 0 22px; }
+  .points { margin: 0; padding: 0; list-style: none; }
+  .points li { position: relative; padding-left: 18px; margin-bottom: 12px; }
+  .points li::before { content: ""; position: absolute; left: 0; top: 0.72em; width: 7px; height: 7px; border-radius: 2px; background: var(--accent); }
+  .stack { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 22px; padding: 0; list-style: none; }
+  .stack li { font-size: 13px; color: var(--text); background: rgba(111, 183, 255, 0.1); border-radius: 6px; padding: 3px 10px; }
+  .links { display: flex; gap: 18px; flex-wrap: wrap; font-size: 15px; font-weight: 600; }
+
+  /* 프로젝트 목록 */
+  .project { display: grid; grid-template-columns: 240px 1fr; gap: 40px; padding: 40px 0; border-top: 1px solid var(--line); }
+  .project:first-of-type { border-top: 0; padding-top: 0; }
+  .project h3 { font-size: 21px; line-height: 1.4; margin: 0 0 8px; }
+  .project .side .stack { margin-top: 16px; }
+  .project .summary { margin: 0 0 18px; font-weight: 500; }
+  .role { font-size: 14px; color: var(--muted); margin: 0; }
+  .placeholder { color: var(--warm); }
+
+  /* 기술 */
+  .skills { display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px; }
+  .skills h3 { font-size: 17px; margin: 0 0 12px; color: var(--accent); }
+  .skills p { margin: 0; color: var(--muted); }
+
+  /* 학습 기록 */
+  .study { display: grid; grid-template-columns: 1fr 1.2fr; gap: 40px; align-items: start; }
+  .study h3 { font-size: 21px; margin: 0 0 10px; }
+  .topics { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+  .topics li { border: 1px solid var(--line); border-radius: 6px; padding: 6px 12px; font-size: 14px; }
+
+  /* 연락 */
+  .contact { padding: 88px 0 72px; }
+  .contact h2 { font-size: 30px; margin: 0 0 12px; }
+  .contact p { color: var(--muted); margin: 0 0 28px; }
+  .contact dl { display: grid; grid-template-columns: 90px 1fr; gap: 12px; margin: 0; }
+  .contact dt { color: var(--muted); }
+  .contact dd { margin: 0; }
+  footer { border-top: 1px solid var(--line); padding: 24px 0; color: var(--muted); font-size: 13px; }
+
+  @media (max-width: 860px) {
+    .hero { padding: 64px 0; }
+    .hero .wrap, .featured, .project, .study { grid-template-columns: 1fr; gap: 28px; }
+    .featured { padding: 28px 22px; }
+    .skills { grid-template-columns: 1fr; gap: 28px; }
+    .nav ul { display: none; }
+    section.block { padding: 64px 0; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="주요 메뉴">
+  <div class="wrap">
+    <a class="nav-name" href="#top">권신협</a>
+    <ul>
+      <li><a href="#projects">프로젝트</a></li>
+      <li><a href="#skills">기술</a></li>
+      <li><a href="#study">학습 기록</a></li>
+      <li><a href="#contact">연락처</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <h1>클라우드부터 IoT까지<br>직접 만들어 온<br>권신협의 프로젝트입니다.</h1>
+      <p>Microsoft 사이버보안 과정에서 Azure 인프라 자동 배포 포털을 만들었습니다. 대학에서는 라즈베리 파이 IoT 기기와 날씨 기반 추천 웹을 팀으로 개발했고, 개인적으로 약 8,700줄 규모의 Java 서버 플러그인을 개발했습니다.</p>
+      <div class="hero-links">
+        <a class="btn primary" href="#projects">프로젝트 보기</a>
+        <a class="btn" href="https://github.com/sinja2557" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+
+    <nav class="index" aria-labelledby="index-title">
+      <h2 id="index-title">프로젝트 한눈에 보기</h2>
+      <ol>
+        <li><a href="#p-azure"><strong>Azure 인프라 요청 포털</strong><span>개인, Azure 인프라 자동 배포 웹 포털</span></a></li>
+        <li><a href="#p-network"><strong>네트워크 계산기</strong><span>개인, IPv4 서브넷과 2진수 계산 웹 도구</span></a></li>
+        <li><a href="#p-diffuser"><strong>자동 디퓨저</strong><span>팀, 라즈베리 파이 IoT 기기 소프트웨어</span></a></li>
+        <li><a href="#p-minecraft"><strong>마인크래프트 서버 플러그인</strong><span>개인, Java 플러그인 2종</span></a></li>
+        <li><a href="#p-ootd"><strong>날씨 기반 코디 추천 웹</strong><span>팀, 메인 페이지 구현</span></a></li>
+      </ol>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="block" id="projects">
+    <div class="wrap">
+      <h2>프로젝트</h2>
+      <p class="lead">최근 작업부터 정리했습니다. 각 프로젝트의 소스 코드는 GitHub에서 확인할 수 있습니다.</p>
+
+      <article class="featured" id="p-azure">
+        <div>
+          <p class="context">경기인력개발원 Microsoft 사이버보안 8회차, 개인 프로젝트</p>
+          <h3>Azure 인프라 요청 포털</h3>
+          <p class="summary">버튼 하나로 Azure 실습 환경을 자동 배포하는 서버리스 웹 포털을 만들었습니다.</p>
+          <ul class="stack" aria-label="사용 기술">
+            <li>JavaScript</li><li>Vite</li><li>MSAL</li><li>ARM Template</li><li>Azure Static Web Apps</li><li>GitHub Actions</li>
+          </ul>
+          <div class="links">
+            <a href="https://github.com/sinja2557/azure-provisioning-portal" target="_blank" rel="noopener">소스 코드</a>
+          </div>
+        </div>
+        <ul class="points">
+          <li>Entra ID로 로그인한 사용자의 권한으로 ARM REST API를 직접 호출해, 백엔드 서버 없이 동작하도록 설계했습니다.</li>
+          <li>ARM 템플릿 하나에 가상 네트워크(서브넷 3개), VM, PostgreSQL, App Service 등 10종의 리소스를 정의했습니다.</li>
+          <li>VM의 공인 IP를 없애고 DB를 VNet 내부에서만 접근하도록 제한했으며, 배포 직후 비밀번호 입력값을 지워 노출 지점을 줄였습니다.</li>
+          <li>10초 간격으로 배포 상태를 조회해 리소스별 진행 상황과 실패 원인을 화면에 표시했습니다.</li>
+          <li>Ubuntu, Windows Server, Windows 11 중 선택할 수 있게 하고, 모든 VM에 보안 부팅과 vTPM을 적용했습니다.</li>
+        </ul>
+      </article>
+
+      <article class="project" id="p-network">
+        <div class="side">
+          <p class="context">Microsoft 사이버보안 8회차, 개인 프로젝트</p>
+          <h3>네트워크 계산기</h3>
+          <ul class="stack" aria-label="사용 기술"><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
+        </div>
+        <div>
+          <p class="summary">네트워크 학습에 필요한 계산을 한 화면에서 처리하는 웹 도구를 만들었습니다.</p>
+          <ul class="points">
+            <li>IP와 CIDR를 입력하면 네트워크 주소, 브로드캐스트, 호스트 범위, 와일드카드, 클래스를 계산합니다.</li>
+            <li>두 IP가 같은 네트워크에 속하는지 판별하고, 2진수 변환과 연산 과정을 단계별로 보여 줍니다.</li>
+            <li>외부 라이브러리 없이 비트 연산을 직접 구현해 약 1,270줄의 JavaScript로 완성했습니다.</li>
+          </ul>
+          <div class="links"><a href="https://github.com/sinja2557/ms8-web-network" target="_blank" rel="noopener">소스 코드</a></div>
+        </div>
+      </article>
+
+      <article class="project" id="p-diffuser">
+        <div class="side">
+          <p class="context">캡스톤디자인 2, 팀 프로젝트</p>
+          <h3>자동 디퓨저</h3>
+          <p class="role">담당: 기기 소프트웨어(SW) 개발</p>
+          <ul class="stack" aria-label="사용 기술"><li>Python</li><li>Raspberry Pi</li><li>Bluetooth</li><li>Firebase</li><li>BeautifulSoup</li></ul>
+        </div>
+        <div>
+          <p class="summary">사용자가 설정한 시간에 맞춰 향을 자동으로 바꾸는 IoT 디퓨저의 기기 소프트웨어를 개발했습니다.</p>
+          <ul class="points">
+            <li>블루투스로 스마트폰에서 와이파이 정보를 받아 자동 연결하고, 연결에 실패하면 설정을 초기화해 다시 받도록 구현했습니다.</li>
+            <li>Firebase Realtime Database로 기기 전원 상태와 사용자 설정을 실시간으로 동기화했습니다.</li>
+            <li>날씨 정보를 크롤링해 서버에 올리고, 부팅 시 필요한 프로그램이 자동 실행되도록 구성했습니다.</li>
+          </ul>
+          <div class="links">
+            <a href="https://www.youtube.com/watch?v=oOSIje8H-xI" target="_blank" rel="noopener">시연 영상</a>
+            <a href="https://github.com/sinja2557/CapstoneDesign2_project" target="_blank" rel="noopener">소스 코드</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project" id="p-minecraft">
+        <div class="side">
+          <p class="context">개인 프로젝트</p>
+          <h3>마인크래프트 서버 플러그인</h3>
+          <ul class="stack" aria-label="사용 기술"><li>Java 23</li><li>Spigot API 1.21</li><li>Maven</li><li>IntelliJ IDEA</li></ul>
+        </div>
+        <div>
+          <p class="summary">약 8,700줄 규모의 서버 플러그인 2종을 직접 설계하고 구현했습니다.</p>
+          <ul class="points">
+            <li>Playground: 화폐와 수표, 경매장, 단계별 직업 버프, 슬롯머신, 홈 이동 등 19개 명령어를 만들었습니다.</li>
+            <li>Playground: 커스텀 GUI 메뉴와 스코어보드를 구성하고, 플레이어 데이터를 YAML 파일로 저장했습니다.</li>
+            <li>xRPGx: 더블 점프 이동기에 쿨타임 표시, 낙하 피해 면역, 사용자와 관리자 권한 분리를 적용했습니다.</li>
+            <li>xRPGx: 플레이어가 접속을 종료하면 상태 데이터를 정리해 메모리가 쌓이지 않도록 처리했습니다.</li>
+          </ul>
+          <div class="links">
+            <a href="https://github.com/sinja2557/Playground" target="_blank" rel="noopener">Playground 코드</a>
+            <a href="https://github.com/sinja2557/xRPGx" target="_blank" rel="noopener">xRPGx 코드</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project" id="p-ootd">
+        <div class="side">
+          <p class="context">캡스톤디자인 1, 팀 프로젝트</p>
+          <h3>날씨 기반 코디 추천 웹</h3>
+          <p class="role">담당: 메인 페이지 구현</p>
+          <ul class="stack" aria-label="사용 기술"><li>React</li><li>JavaScript</li><li>OpenWeatherMap API</li></ul>
+        </div>
+        <div>
+          <p class="summary">위치 기반 날씨에 맞춰 옷차림과 음식을 추천하는 웹페이지에서 첫 메인 페이지를 구현했습니다.</p>
+          <ul class="points">
+            <li>위치 권한으로 받은 좌표로 OpenWeatherMap API를 호출해 현재 날씨, 기온, 강수 확률, 미세먼지를 메인 화면에 표시했습니다.</li>
+            <li>남성, 여성, 공용 코디와 음식 추천 페이지로 이동하는 메인 메뉴를 구성했습니다.</li>
+            <li>GitHub Pages로 배포해 누구나 바로 사용할 수 있게 했습니다.</li>
+          </ul>
+          <div class="links">
+            <a href="https://sinja2557.github.io/CapstoneDesign1_project/" target="_blank" rel="noopener">사이트 방문</a>
+            <a href="https://github.com/sinja2557/CapstoneDesign1_project" target="_blank" rel="noopener">소스 코드</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="block" id="skills">
+    <div class="wrap">
+      <h2>기술</h2>
+      <p class="lead">프로젝트에서 직접 사용한 기술만 적었습니다.</p>
+      <div class="skills">
+        <div>
+          <h3>클라우드와 네트워크</h3>
+          <p>Azure(ARM 템플릿, Entra ID, Static Web Apps, App Service, PostgreSQL), VNet 설계, IPv4 서브넷 계산</p>
+        </div>
+        <div>
+          <h3>언어</h3>
+          <p>Java, JavaScript, Python, C</p>
+        </div>
+        <div>
+          <h3>프레임워크와 도구</h3>
+          <p>React, Vite, Spigot API, Firebase, Raspberry Pi, Git, GitHub Actions, IntelliJ IDEA</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="study">
+    <div class="wrap study">
+      <div>
+        <h2>학습 기록</h2>
+        <h3>시스템 프로그래밍</h3>
+        <p class="lead" style="margin-bottom:20px">대학 수업 25회차 동안 리눅스 시스템 호출을 C로 직접 구현했습니다.</p>
+        <div class="links"><a href="https://github.com/sinja2557/systemprograming" target="_blank" rel="noopener">실습 코드</a></div>
+      </div>
+      <ul class="topics" aria-label="실습 주제">
+        <li>프로세스 생성과 실행</li><li>시그널 처리</li><li>스레드와 뮤텍스</li><li>메모리 매핑</li>
+        <li>파이프</li><li>메시지 큐</li><li>공유 메모리</li><li>세마포어</li>
+        <li>생산자와 소비자 문제</li><li>TCP 소켓 채팅</li><li>정적 라이브러리</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <h2>연락처</h2>
+      <p>함께 일할 기회를 기다리고 있습니다. 편하게 연락 주세요.</p>
+      <dl>
+        <dt>이메일</dt><dd><a href="mailto:sinja2557@naver.com">sinja2557@naver.com</a></dd>
+        <dt>GitHub</dt><dd><a href="https://github.com/sinja2557" target="_blank" rel="noopener">github.com/sinja2557</a></dd>
+      </dl>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 권신협</div>
+</footer>
+
+</body>
+</html>
