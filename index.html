@@ -177,11 +177,13 @@
     <nav class="index" aria-labelledby="index-title">
       <h2 id="index-title">프로젝트 한눈에 보기</h2>
       <ol>
+        <li><a href="#p-tcp-ip"><strong>TCP/IP | CSAP</strong><span>TCP/IP 개론, Cisco Packet Tracer, CSAP</span></a></li>
         <li><a href="#p-azure"><strong>Azure 인프라 요청 포털 (개발중)</strong><span>개인, Azure 인프라 자동 배포 웹 포털</span></a></li>
+        <li><a href="#p-azure-beginner"><strong>Microsoft Azure</strong><span>Azure 기초</span></a></li>
         <li><a href="#p-network"><strong>네트워크 계산기</strong><span>개인, IPv4 서브넷과 2진수 계산 웹 도구</span></a></li>
         <li><a href="#p-diffuser"><strong>자동 디퓨저</strong><span>팀, 라즈베리 파이 IoT 기기 소프트웨어</span></a></li>
         <li><a href="#p-minecraft"><strong>마인크래프트 서버 플러그인</strong><span>개인, Java 플러그인 2종</span></a></li>
-        <li><a href="#p-ootd"><strong>날씨 기반 코디 추천 웹</strong><span>팀, 메인 페이지 구현</span></a></li>
+        <li><a href="#p-ootd"><strong>날씨 기반 코디 추천 웹</strong><span>팀, 메인 페이지 구현</span></a></li>       
       </ol>
     </nav>
   </div>
@@ -192,6 +194,26 @@
     <div class="wrap">
       <h2>프로젝트</h2>
       <p class="lead">최근 작업부터 정리했습니다. 각 프로젝트의 소스 코드는 GitHub에서 확인할 수 있습니다.</p>
+
+      <article class="featured" id="p-tcp-ip">
+        <div>
+          <p class="context">경기인력개발원 Microsoft 사이버보안 8회차, TCP/IP</p>
+          <h3>2026-10-12 ~ 2026-10-30</h3>
+          <p class="summary">TCP/IP 개론, Cisco Packet Tracer(WireShark), CSAP 개념을 알게 됐습니다.</p>
+          <ul class="stack" aria-label="사용 기술">
+            <li>TCP/IP</li><li>Cisco Packet Tracer</li><li>CSAP</li><li>Python(Google Colab)</li>
+          </ul>
+          <div class="links">
+            <a href="https://github.com/sinja2557/ms8-tcp-ip" target="_blank" rel="noopener">소스 코드</a>
+          </div>
+        </div>
+        <ul class="points">
+          <li>TCP/IP 통신 개론을 통해 기초적인 네트워크 통신을 알게 됐습니다.</li>
+          <li>Cisco Packet Tracer를 사용하여 가상의 장비(Router, Switch, Server, PC)로 실습을 하였습니다.</li>
+          <li>Python 언어를 배워 AM, FM, PCM 정보를 전파나 디지털 데이터로 변환하여 전송하는 변조(Modulation) 방식 실습을 하였습니다.</li>
+          <li>CSAP 개념과 정책서 등 법률에 관한 내용을 알게 됐습니다.</li>
+        </ul>
+      </article>
 
       <article class="featured" id="p-azure">
         <div>
@@ -211,6 +233,24 @@
           <li>VM의 공인 IP를 없애고 DB를 VNet 내부에서만 접근하도록 제한했으며, 배포 직후 비밀번호 입력값을 지워 노출 지점을 줄였습니다.</li>
           <li>10초 간격으로 배포 상태를 조회해 리소스별 진행 상황과 실패 원인을 화면에 표시했습니다.</li>
           <li>Ubuntu, Windows Server, Windows 11 중 선택할 수 있게 하고, 모든 VM에 보안 부팅과 vTPM을 적용했습니다.</li>
+        </ul>
+      </article>
+
+      <article class="featured" id="p-azure-beginner">
+        <div>
+          <p class="context">경기인력개발원 Microsoft 사이버보안 8회차, Azure 기초</p>
+          <h3>2026-08-19 ~ 2026-10-08</h3>
+          <p class="summary">Microsoft Azure에 대한 기초적인 사용법을 알게 된 시간이였습니다.</p>
+          <ul class="stack" aria-label="사용 기술">
+            <li>Azure CLI</li><li>Resource Group</li><li>Virtual Machine</li><li>Virtual Network</li><li>Subnet-mask</li><li>Azure SQL Database</li><li>router</li>
+          </ul>
+          <div class="links">
+            <a href="https://github.com/sinja2557/ms8-beginning" target="_blank" rel="noopener">소스 코드</a>
+          </div>
+        </div>
+        <ul class="points">
+          <li>경기인력개발원에서 발급받은 ID를 통해 Azure에 접속하여 클라우드에 대한 기초적인 개념을 알게 됐습니다.</li>
+          <li>Azure(Resource Group, VM, Vnet, Snet, Router, Azure SQL DB), Ubuntu(VirtualBox), DB(SQL Server Management Studio 2022)</li>
         </ul>
       </article>
 
