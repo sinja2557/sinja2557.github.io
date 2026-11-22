@@ -177,6 +177,7 @@
     <nav class="index" aria-labelledby="index-title">
       <h2 id="index-title">프로젝트 한눈에 보기</h2>
       <ol>
+        <li><a href="#p-chaltteok"><strong>찰떡, AI 민원 대필 서비스</strong><span>팀, 2026 청년 AI 해커톤</span></a></li>
         <li><a href="#p-tcp-ip"><strong>TCP/IP | CSAP</strong><span>TCP/IP 개론, Cisco Packet Tracer, CSAP</span></a></li>
         <li><a href="#p-azure"><strong>Azure 인프라 요청 포털 (개발중)</strong><span>개인, Azure 인프라 자동 배포 웹 포털</span></a></li>
         <li><a href="#p-azure-beginner"><strong>Microsoft Azure</strong><span>Azure 기초</span></a></li>
@@ -194,6 +195,30 @@
     <div class="wrap">
       <h2>프로젝트</h2>
       <p class="lead">최근 작업부터 정리했습니다. 각 프로젝트의 소스 코드는 GitHub에서 확인할 수 있습니다.</p>
+
+      <article class="featured" id="p-chaltteok">
+        <div>
+          <p class="context">2026-11-21 ~ 개발중, 2026 청년 AI 해커톤 21팀</p>
+          <h3>찰떡(Chaltteok), AI 민원 대필 서비스</h3>
+          <p class="summary">개떡같이 말해도 찰떡같이 알아듣는 AI 민원 대필 서비스를 4인 팀으로 개발했습니다.</p>
+          <p class="role">담당: <span class="placeholder">[담당 파트 입력]</span></p>
+          <ul class="stack" aria-label="사용 기술" style="margin-top:16px">
+            <li>TypeScript</li><li>React 19</li><li>Vite</li><li>Tailwind CSS</li><li>Vercel Functions</li><li>OpenAI API</li><li>Zod</li><li>IndexedDB</li><li>PWA</li>
+          </ul>
+          <div class="links">
+            <a href="https://chaltteok-phi.vercel.app/" target="_blank" rel="noopener">사이트 방문</a>
+            <a href="https://github.com/sinja2557/2026-Hackathon-chaltteok" target="_blank" rel="noopener">소스 코드</a>
+          </div>
+        </div>
+        <ul class="points">
+          <li>민원인이 공공기관 방문 전에 상황을 말로 설명하면, AI가 내용을 정리해 담당자가 바로 읽을 수 있는 요약 카드로 만들어 주는 모바일 웹(PWA)입니다.</li>
+          <li>모든 요약 항목에 사용자의 실제 발언을 근거로 요구하고 원문 검증 단계를 두어, 말하지 않은 내용은 AI가 만들어 내지 않도록 했습니다.</li>
+          <li>AI 호출 전에 개인정보를 마스킹하고, 외부 전송 동의 없이는 전송을 막았습니다. 요약은 사용자 기기의 IndexedDB에 저장하고 기본 7일 뒤 자동 삭제합니다.</li>
+          <li>생명과 안전에 관한 위기 발언을 한국어, 영어, 베트남어 키워드로 감지해 119, 112, 129 긴급 안내를 우선 보여 줍니다.</li>
+          <li>음성 입력과 읽어 주기, 다국어 대화, 담당자용 큰 글씨 화면, QR 코드 전달을 지원합니다.</li>
+          <li>기반·서버, 음성, AI, 화면 4개 파트로 나눠 브랜치별 PR과 교차 리뷰로 협업했고, 테스트 17개 파일로 핵심 로직을 검증했습니다.</li>
+        </ul>
+      </article>
 
       <article class="featured" id="p-tcp-ip">
         <div>
