@@ -178,7 +178,7 @@
       <h2 id="index-title">프로젝트 한눈에 보기</h2>
       <ol>
         <li><a href="#p-chaltteok"><strong>찰떡, AI 민원 대필 서비스</strong><span>21팀, 2026 청년 AI 해커톤</span></a></li>
-        <li><a href="#p-cloud"><strong>Cloud</strong><span>Linux·Windows 서버 구축, 3 Tier 웹 서비스</span></a></li>
+        <li><a href="#p-cloud"><strong>Cloud</strong><span>서버 구축, 3 Tier, HAProxy, Azure, VPN</span></a></li>
         <li><a href="#p-tcp-ip"><strong>TCP/IP | CSAP</strong><span>TCP/IP 개론, Cisco Packet Tracer, CSAP</span></a></li>
         <li><a href="#p-azure"><strong>Azure 인프라 요청 포털 (개발중)</strong><span>개인, Azure 인프라 자동 배포 웹 포털</span></a></li>
         <li><a href="#p-azure-beginner"><strong>Microsoft Azure</strong><span>Azure 기초</span></a></li>
@@ -225,20 +225,23 @@
         <div>
           <p class="context">2026-11-02 ~ 2027-03-12 (진행 중)</p>
           <h3>경기인력개발원 Microsoft 사이버보안 8회차, Cloud</h3>
-          <p class="summary">Linux와 Windows 서버를 직접 구축하고, Web·WAS·DB를 분리한 3 Tier 웹 서비스까지 실습했습니다.</p>
+          <p class="summary">Linux와 Windows 서버 구축부터 3 Tier 웹 서비스, 로드 밸런싱, Azure 배포, VPN까지 직접 실습했습니다.</p>
           <ul class="stack" aria-label="사용 기술">
-            <li>VMware Workstation</li><li>Rocky Linux 9</li><li>Windows Server 2022</li><li>Apache</li><li>IIS</li><li>BIND</li><li>MySQL</li><li>WordPress</li><li>GNS3</li>
+            <li>VMware Workstation</li><li>Rocky Linux 9</li><li>Windows Server 2022</li><li>Apache</li><li>IIS</li><li>BIND</li><li>MySQL</li><li>WordPress</li><li>HAProxy</li><li>Azure</li><li>GNS3</li>
           </ul>
           <div class="links">
             <a href="https://github.com/sinja2557/cs8-cloud" target="_blank" rel="noopener">소스 코드</a>
           </div>
         </div>
         <ul class="points">
-          <li>VMware로 Rocky Linux 3대, Windows Server 2022 3대, Windows 10·11 가상머신을 체계 구성도에 맞춰 구축했습니다.</li>
-          <li>Linux 사용자·그룹, ACL, LVM과 Windows 공유 권한을 실습하며 부서와 직급별 접근 권한을 설계했습니다.</li>
+          <li>VMware로 Rocky Linux 3대, Windows Server 2022 3대, Windows 10·11 가상머신을 체계 구성도에 맞춰 구축하고, Linux ACL과 Windows 공유 권한으로 부서와 직급별 접근 권한을 설계했습니다.</li>
           <li>FTP, DNS(주·보조), 웹, 메일 서버를 Linux와 Windows 양쪽에 구성했고, Linux NFS 서버는 Linux와 Windows 클라이언트에서 마운트해 확인했습니다.</li>
-          <li>Web, WAS, DB 3 Tier 구조로 WordPress를 분리 구성하고, IIS의 ARR로 요청을 WAS에 전달하는 역방향 프록시를 만들었습니다.</li>
-          <li>3 Tier 구축 과정을 보고서로 정리했고, 서버를 초기화한 뒤 같은 순서로 다시 구성하며 절차를 익혔습니다.</li>
+          <li>Windows에서는 IIS의 ARR로 요청을 WAS에 전달하는 역방향 프록시를 만들어 Web, WAS, DB를 분리한 WordPress 3 Tier를 구성했습니다.</li>
+          <li>Linux NAT 라우터를 구성하고 HAProxy의 라운드로빈 방식으로 WordPress 서버 2대에 요청을 분산했습니다.</li>
+          <li>SSH 공개키 인증을 설정하고, 점프 박스(bastion)를 거쳐 내부 서버에 접속하는 터널링을 구성했습니다.</li>
+          <li>Azure에 가상 네트워크, Rocky Linux VM, 네트워크 보안 그룹을 만들고 BIND 주·보조 DNS와 웹 서버를 올려 가비아 네임서버와 연동했으며, 실습 후 리소스를 순서대로 삭제해 비용을 관리했습니다.</li>
+          <li>Windows Server의 라우팅 및 원격 액세스로 NAT와 VPN을 구성하고, 클라이언트 접속 후 공유 폴더 접근까지 확인했습니다.</li>
+          <li>Linux 3 Tier는 DB, WAS, WEB 순서로 셸 스크립트를 만들어 자동 구축했습니다. HAProxy가 .php 요청은 WAS로, 나머지는 WEB으로 나누고, 설치 후 반복되던 WordPress 리디렉션 문제는 redirect_canonical 해제로 해결해 보고서로 정리했습니다.</li>
         </ul>
       </article>
 
